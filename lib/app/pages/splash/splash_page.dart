@@ -1,5 +1,7 @@
+import 'package:delivery_app/app/core/config/env/env.dart';
 import 'package:delivery_app/app/core/ui/styles/app_styles.dart';
 import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
+import 'package:delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -14,13 +16,15 @@ class SplashPage extends StatelessWidget {
       body: Column(
         children: [
           Container(),
-          ElevatedButton(
+          DeliveryButton(
+            height: 200,
+            width: 200,
             onPressed: () {},
-            child: Text(
-              'teste',
-            ),
+            label: Env.i['base_url'] ?? '',
           ),
-          TextFormField(),
+          TextFormField(
+            decoration: InputDecoration(labelText: 'teste'),
+          ),
         ],
       ),
     );

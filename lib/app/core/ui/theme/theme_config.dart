@@ -1,5 +1,6 @@
 import 'package:delivery_app/app/core/ui/styles/app_styles.dart';
 import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
+import 'package:delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ThemeConfig {
@@ -37,6 +38,8 @@ class ThemeConfig {
       border: _defaultBorder,
       enabledBorder: _defaultBorder,
       focusedBorder: _defaultBorder,
+      labelStyle: TextStyles.i.textRegular.copyWith(color: Colors.black),
+      errorStyle: TextStyles.i.textRegular.copyWith(color: Colors.redAccent),
     ),
   );
 }
