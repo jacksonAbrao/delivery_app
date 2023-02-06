@@ -5,13 +5,13 @@ import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:delivery_app/app/core/ui/styles/text_styles.dart';
 
 class DeliveryIncrementDecrementButton extends StatelessWidget {
-  final int amout;
+  final int amount;
   final VoidCallback incrementTap;
   final VoidCallback decrementTap;
 
   const DeliveryIncrementDecrementButton({
     super.key,
-    required this.amout,
+    required this.amount,
     required this.incrementTap,
     required this.decrementTap,
   });
@@ -36,13 +36,13 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
                 '-',
                 style: context.textStyles.textMedium.copyWith(
                   fontSize: 22,
-                  color: amout <= 1 ? Colors.grey : context.colors.secondary,
+                  color: amount <= 1 ? Colors.grey : context.colors.secondary,
                 ),
               ),
             ),
           ),
           Text(
-            amout.toString(),
+            amount.toString(),
             style: context.textStyles.textMedium.copyWith(
               fontSize: 17,
               color: context.colors.secondary,
