@@ -1,5 +1,7 @@
 import 'package:delivery_app/app/core/provider/application_binding.dart';
 import 'package:delivery_app/app/core/ui/theme/theme_config.dart';
+import 'package:delivery_app/app/pages/product_detail/product_detail_page.dart';
+import 'package:delivery_app/app/pages/product_detail/product_detail_router.dart';
 import 'package:delivery_app/app/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,7 @@ class DeliveryApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashPage(),
           '/home': (context) => HomeRouter.page,
+          '/product_detail': (context) => ProductDetailRouter.page,
         },
       ),
     );
