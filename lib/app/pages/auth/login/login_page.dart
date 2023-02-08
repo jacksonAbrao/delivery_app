@@ -45,7 +45,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
           success: () {
             hideLoader();
             showSuccess('Usuário logado com sucesso');
-            Navigator.pop(context);
+            Navigator.pop(context, true);
           },
         );
       },
