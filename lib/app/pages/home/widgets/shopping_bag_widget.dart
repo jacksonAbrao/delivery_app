@@ -15,9 +15,15 @@ class ShoppingBagWidget extends StatelessWidget {
     if (!sp.containsKey('accessToken')) {
       // envia para o Login
       final loginReult = await navigator.pushNamed('/auth/login');
+      if (loginReult == null || loginReult == false) {
+        return;
+      }
     }
 
-    // Navigator.of(context).pushNamed('/auth/login');
+    await navigator.pushNamed(
+      '/order',
+      arguments: bag,
+    );
   }
 
   @override
