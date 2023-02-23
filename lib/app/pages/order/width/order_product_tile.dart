@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:delivery_app/app/core/extensions/formater_extension.dart';
 import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:delivery_app/app/pages/product_detail/widgets/delivery_increment_decrement_button.dart';
@@ -18,12 +19,13 @@ class OrderProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final product = orderProduct.product;
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [
           Image.network(
-            "https://assets.unileversolutions.com/recipes-v2/106684.jpg?imwidth=800",
+            product.image,
             height: 100,
             width: 100,
             fit: BoxFit.cover,
@@ -36,7 +38,7 @@ class OrderProductTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'X-Burger',
+                    product.name,
                     style: context.textStyles.textRegular.copyWith(
                       fontSize: 16,
                     ),
@@ -45,7 +47,7 @@ class OrderProductTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '19,90',
+                        (orderProduct.amount * product.price).currencyPTBR,
                         style: context.textStyles.textMedium.copyWith(
                           fontSize: 14,
                           color: context.colors.secondary,
