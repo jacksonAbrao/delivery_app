@@ -6,7 +6,16 @@ import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 
 class PaymentTypesField extends StatelessWidget {
   final List<PaymentTypeModel> paymentTypes;
-  const PaymentTypesField({super.key, required this.paymentTypes});
+  final ValueChanged<int> valueChanged;
+  final bool valid;
+  final String valueSelected;
+  const PaymentTypesField({
+    super.key,
+    required this.paymentTypes,
+    required this.valueChanged,
+    required this.valid,
+    required this.valueSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +30,11 @@ class PaymentTypesField extends StatelessWidget {
           ),
           SmartSelect<String>.single(
             title: '',
-            selectedValue: '',
+            selectedValue: valueSelected,
             modalType: S2ModalType.bottomSheet,
-            onChange: (value) {},
+            onChange: (selected) {
+              valueChanged(int.parse(selected.value));
+            },
             tileBuilder: (context, state) {
               return InkWell(
                 onTap: state.showModal,
@@ -41,6 +52,31 @@ class PaymentTypesField extends StatelessWidget {
                             style: context.textStyles.textRegular,
                           ),
                           const Icon(Icons.arrow_forward_ios_rounded)
+                        ],
+                      ),
+                    ),
+                    Visibility(
+                      visible: !valid,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Divider(
+                            color: Colors.red,
+                            height: 4,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              'Selecione uma forma de pagamento',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
